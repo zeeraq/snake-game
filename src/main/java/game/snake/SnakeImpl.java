@@ -9,11 +9,6 @@ class SnakeImpl implements Snake {
     }
 
     @Override
-    public Orientation getHeadOrientation() {
-        return headOrientation;
-    }
-
-    @Override
     public void changeDirection(Direction direction) {
         if (headOrientation.getDirection().getOpposite() != direction) {
             headOrientation.setDirection(direction);
@@ -36,5 +31,20 @@ class SnakeImpl implements Snake {
                 headOrientation.incrementX();
                 break;
         }
+    }
+
+    @Override
+    public int getHeadX() {
+        return headOrientation.getXCoordinate();
+    }
+
+    @Override
+    public int getHeadY() {
+        return headOrientation.getYCoordinate();
+    }
+
+    @Override
+    public Direction getHeadDirection() {
+        return headOrientation.getDirection();
     }
 }

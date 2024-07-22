@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f23bfd96-2411-40db-abfc-7c79deb22714" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/snake/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/snake/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/snake/Orientation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/snake/Orientation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/snake/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/snake/Snake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/snake/SnakeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/snake/SnakeImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/game/snake/SnakeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/game/snake/SnakeTest.java" afterDir="false" />
@@ -93,7 +91,7 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="SnakeTest.move_currentDirectionIdRight_xCoordinateIncrementsOnMove" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SnakeTest.getHeadOrientation_shouldBeAtOriginUponCreation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -106,7 +104,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;game.snake.SnakeTest.move_currentDirectionIdRight_xCoordinateIncrementsOnMove&quot;" />
+            <option value="&quot;game.snake.SnakeTest.getHeadOrientation_shouldBeAtOriginUponCreation&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -192,10 +190,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.SnakeTest" />
+        <item itemvalue="Gradle.SnakeTest.getHeadOrientation_shouldBeAtOriginUponCreation" />
         <item itemvalue="Gradle.SnakeTest.move_currentDirectionIsDown_yCoordinateDecrementsOnMove" />
         <item itemvalue="Gradle.SnakeTest.move_currentDirectionIsLeft_xCoordinateDecrementsOnMove" />
         <item itemvalue="Gradle.SnakeTest.move_currentDirectionIsRight_xCoordinateIncrementsOnMove" />
-        <item itemvalue="Gradle.SnakeTest.move_currentDirectionIdRight_xCoordinateIncrementsOnMove" />
       </list>
     </recent_temporary>
   </component>
@@ -207,7 +205,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721467242442</updated>
-      <workItem from="1721467245724" duration="9241000" />
+      <workItem from="1721467245724" duration="11996000" />
     </task>
     <servers />
   </component>

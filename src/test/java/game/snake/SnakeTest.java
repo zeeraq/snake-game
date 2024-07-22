@@ -28,100 +28,82 @@ public class SnakeTest {
     @Test
     public void getHeadOrientation_shouldBeAtOriginUponCreation() {
         Snake snake = snakeFactory.createSnake();
-        Orientation headOrientation = snake.getHeadOrientation();
-        Assertions.assertEquals(0, headOrientation.getXCoordinate());
-        Assertions.assertEquals(0, headOrientation.getYCoordinate());
+        Assertions.assertEquals(0, snake.getHeadX());
+        Assertions.assertEquals(0, snake.getHeadY());
     }
 
     @Test
     public void getHeadOrientation_shouldBeMovingUpUponCreation() {
         Snake snake = snakeFactory.createSnake();
-        Orientation headOrientation = snake.getHeadOrientation();
-        Assertions.assertEquals(Direction.UP, headOrientation.getDirection());
+        Assertions.assertEquals(Direction.UP, snake.getHeadDirection());
     }
 
     @Test
     public void changeDirection_directionShouldChangeToTheEnteredValue() {
         Snake snake = snakeFactory.createSnake();
-        Orientation headOrientation = snake.getHeadOrientation();
-        Assertions.assertEquals(Direction.UP, headOrientation.getDirection());
+        Assertions.assertEquals(Direction.UP, snake.getHeadDirection());
 
         snake.changeDirection(Direction.LEFT);
 
-        Assertions.assertEquals(Direction.LEFT, headOrientation.getDirection());
+        Assertions.assertEquals(Direction.LEFT, snake.getHeadDirection());
     }
 
     @Test
     public void changeDirection_changedDirectionIsOppositeOfCurrentDirection_upToDown_directionStaysSame() {
         Snake snake = snakeFactory.createSnake();
-        Orientation headOrientation = snake.getHeadOrientation();
-        Assertions.assertEquals(Direction.UP, headOrientation.getDirection());
+        Assertions.assertEquals(Direction.UP, snake.getHeadDirection());
 
         snake.changeDirection(Direction.DOWN);
 
-        Assertions.assertEquals(Direction.UP, headOrientation.getDirection());
+        Assertions.assertEquals(Direction.UP, snake.getHeadDirection());
     }
 
     @Test
     public void changeDirection_changedDirectionIsOppositeOfCurrentDirection_leftToRight_directionStaysSame() {
         Snake snake = snakeFactory.createSnake();
         snake.changeDirection(Direction.LEFT);
-        Orientation headOrientation = snake.getHeadOrientation();
-        Assertions.assertEquals(Direction.LEFT, headOrientation.getDirection());
+        Assertions.assertEquals(Direction.LEFT, snake.getHeadDirection());
 
         snake.changeDirection(Direction.RIGHT);
 
-        Assertions.assertEquals(Direction.LEFT, headOrientation.getDirection());
+        Assertions.assertEquals(Direction.LEFT, snake.getHeadDirection());
     }
 
     @Test
     public void move_headPositionShouldChangeAsPerOrientation() {
         Snake snake = snakeFactory.createSnake();
 
-        Orientation headOrientationBeforeMove = snake.getHeadOrientation();
-        Assertions.assertEquals(0, headOrientationBeforeMove.getXCoordinate());
-        Assertions.assertEquals(0, headOrientationBeforeMove.getYCoordinate());
-        Assertions.assertEquals(Direction.UP, headOrientationBeforeMove.getDirection());
+        Assertions.assertEquals(0, snake.getHeadX());
+        Assertions.assertEquals(0, snake.getHeadY());
+        Assertions.assertEquals(Direction.UP, snake.getHeadDirection());
 
         snake.move();
 
-        Orientation headOrientationAfterMove = snake.getHeadOrientation();
-        Assertions.assertEquals(0, headOrientationAfterMove.getXCoordinate());
-        Assertions.assertEquals( 1, headOrientationAfterMove.getYCoordinate());
-        Assertions.assertEquals(Direction.UP, headOrientationAfterMove.getDirection());
-    }
-
-    @Test
-    public void moveTwiceAfterCreation_yShouldBecome2() {
-        Snake snake = snakeFactory.createSnake();
-        snake.move();
-        snake.move();
-        Orientation headOrientationAfterMove = snake.getHeadOrientation();
-        Assertions.assertEquals( 2, headOrientationAfterMove.getYCoordinate());
+        Assertions.assertEquals(0, snake.getHeadX());
+        Assertions.assertEquals( 1, snake.getHeadY());
+        Assertions.assertEquals(Direction.UP, snake.getHeadDirection());
     }
 
     @Test
     public void move_currentDirectionIsRight_xCoordinateIncrementsOnMove() {
         Snake snake = snakeFactory.createSnake();
         snake.changeDirection(Direction.RIGHT);
-        Orientation headOrientation = snake.getHeadOrientation();
-        Assertions.assertEquals(0, headOrientation.getXCoordinate());
+        Assertions.assertEquals(0, snake.getHeadX());
 
         snake.move();
 
-        Assertions.assertEquals(1, headOrientation.getXCoordinate());
+        Assertions.assertEquals(1, snake.getHeadX());
     }
 
     @Test
     public void move_currentDirectionIsLeft_xCoordinateDecrementsOnMove() {
         Snake snake = snakeFactory.createSnake();
         snake.changeDirection(Direction.LEFT);
-        Orientation headOrientation = snake.getHeadOrientation();
-        Assertions.assertEquals(0, headOrientation.getXCoordinate());
+        Assertions.assertEquals(0, snake.getHeadX());
 
         snake.move();
 
-        Assertions.assertEquals(-1, headOrientation.getXCoordinate());
+        Assertions.assertEquals(-1, snake.getHeadX());
     }
 
     @Test
@@ -129,15 +111,12 @@ public class SnakeTest {
         Snake snake = snakeFactory.createSnake();
         snake.changeDirection(Direction.LEFT);
         snake.changeDirection(Direction.DOWN);
-        Orientation headOrientation = snake.getHeadOrientation();
-        Assertions.assertEquals(0, headOrientation.getYCoordinate());
+        Assertions.assertEquals(0, snake.getHeadY());
 
         snake.move();
 
-        Assertions.assertEquals(-1, headOrientation.getYCoordinate());
+        Assertions.assertEquals(-1, snake.getHeadY());
 
     }
-
-
 
 }
