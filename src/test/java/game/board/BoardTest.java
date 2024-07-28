@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.awt.*;
+
 @ExtendWith(MockitoExtension.class)
 public class BoardTest {
 
@@ -64,6 +66,25 @@ public class BoardTest {
         Cell cell2 = board.getCell(10, 33);
         Assertions.assertEquals(10, cell2.getX());
         Assertions.assertEquals(33, cell2.getY());
+    }
+
+    @Test
+    public void addSnakeToPosition_cellColorForThePosition_changesFromWhiteToBlack() {
+        Board board = boardFactory.createBoard(BOARD_WIDTH, BOARD_HEIGHT);
+        Cell cell = board.getCell(13,34);
+        Assertions.assertEquals(Color.WHITE, cell.getColor());
+        board.addSnakeToPosition(13, 34);
+        Assertions.assertEquals(Color.BLACK, cell.getColor());
+    }
+
+    @Test
+    public void removeSnakeFromPosition_cellColor_changesFromBlackToWhite() {
+        Board board = boardFactory.createBoard(BOARD_WIDTH, BOARD_HEIGHT);
+        Cell cell = board.getCell(13,34);
+        board.addSnakeToPosition(13, 34);
+        Assertions.assertEquals(Color.BLACK, cell.getColor());
+        board.removeSnakeFromPosition(13, 34);
+        Assertions.assertEquals(Color.WHITE, cell.getColor());
     }
 
 }
