@@ -1,5 +1,8 @@
 package game.board;
 
+import game.commons.Bound;
+import game.commons.EntityType;
+import game.commons.Position;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -87,4 +90,23 @@ public class BoardTest {
         Assertions.assertEquals(Color.WHITE, cell.getColor());
     }
 
+    @Test
+    public void getInitialisationBound_forSnake_nonNull() {
+        Board board = boardFactory.createBoard(200, 150);
+        Bound bound = board.getBoundFor(EntityType.SNAKE);
+        Assertions.assertNotNull(bound);
+    }
+
+    @Test
+    public void getInitialisationBound_forSnake_generatePosition_returnsPositionWithMinAndMaxOffsetOf10FromBoardBoundaries() {
+        Board board = boardFactory.createBoard(200, 150);
+        Bound bound = board.getBoundFor(EntityType.SNAKE);
+        Position generatedPosition = bound.generateRandonPosition();
+
+        Assertions.assertTrue(generatedPosition.getX() >= 10);
+        Assertions.assertTrue(generatedPosition.getY() >= 10);
+
+        Assertions.assertTrue(generatedPosition.getX() <= 189);
+        Assertions.assertTrue(generatedPosition.getY() <= 139);
+    }
 }

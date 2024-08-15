@@ -1,7 +1,12 @@
 package game.snake;
 
+import game.board.Board;
+import game.commons.Bound;
+import game.commons.EntityType;
+import game.commons.Position;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
@@ -23,6 +28,14 @@ public class SnakeTest {
     public void create_snakeShouldBeNonNull() {
         Snake snake = snakeFactory.createSnake();
         Assertions.assertNotNull(snake);
+    }
+
+    @Test
+    public void create_snakePositionUponCreation_is() {
+        Board board = Mockito.mock(Board.class);
+        Bound bound = Mockito.mock(Bound.class);
+        Mockito.when(board.getBoundFor(EntityType.SNAKE)).thenReturn(bound);
+
     }
 
     @Test

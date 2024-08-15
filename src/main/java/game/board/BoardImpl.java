@@ -1,5 +1,8 @@
 package game.board;
 
+import game.commons.Bound;
+import game.commons.EntityType;
+
 import java.awt.*;
 
 class BoardImpl implements Board {
@@ -38,6 +41,14 @@ class BoardImpl implements Board {
     @Override
     public void removeSnakeFromPosition(int x, int y) {
         ((CellImpl) boardCells[x][y]).setColor(Color.WHITE);
+    }
+
+    @Override
+    public Bound getBoundFor(EntityType entityType) {
+        if (EntityType.SNAKE.equals(entityType)) {
+            return new Bound(10, width - 11, 10, height - 11);
+        }
+        return null;
     }
 
     private void validateCoordinateInBounds(int x, int y) {
